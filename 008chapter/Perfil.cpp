@@ -80,7 +80,7 @@ void EvaluateCholesterol(ofstream& healthProfile, string name){
 	}
 	// Imprimir un mensaje con base en el valor de LDL
 	if(LDL < 100) {
-		helthProfile << "   LDL es óptimo" << endl;
+		healthProfile << "   LDL es óptimo" << endl;
 	} else if (LDL < 130) {
 		healthProfile << "  LDL es casi óptimo" << endl;
 	} else if (LDL < 160) {
@@ -129,15 +129,48 @@ void EvaluateBMI(ofstream& healthProfile, string name) {
 }
 
 
+void EvaluateBloodPressure(ofstream& healthProfile, string name) {
+	// Declarar las lecturas de tension arterial
+	int systolic;
+	int diastolic;
 
+	// Introducir las lecturas de tensión arterial del paciente
+	cout << "Introducir las lectura de tensión arterial sistólica para " << name << ": ";
+	cin >> systolic;
+	cout << "Introduzca la lectura de tension arterial diastólica para " << name << ": ";
+	cin >> diastolic;
 
+	// Imprimir la interpretación de la lectura sistólica
+	healthProfile << "Perfil de tensión arterial " << endl;
+	if (systolic < 120) {
+		healthProfile << "  La lectura sistólica es óptima" << endl;
+	} else if (systolic < 130) {
+		healthProfile << "  La lectura sistolica es normal" << endl;
+	} else if (systolic < 140) {
+		healthProfile << "  La lectura sistólica es normal alta" << endl;
+	} else if (systolic < 160) {
+		healthProfile << "  La lectura sistólica indica etapa 1 de hipertensión" << endl;
+	} else if (systolic < 180) {
+		healthProfile << "  La lectura sistólica indica etapa 2 de hipertensión" << endl;
+	} else {
+		healthProfile << "  La lectura sistólica indica etapa 3 de hipertensión" << endl;
+	}
 
-
-
-
-
-
-
+	// Imprimir la interpretación de la lectura diastólica
+	if (diastolic < 80) {
+		healthProfile << "  La lectura diastólica es óptima" << endl;
+	} else if (diastolic < 85) {
+		healthProfile << "  La lectura diastólica es normal" << endl;
+	} else if (diastolic < 90) {
+		healthProfile << "  La lectura diastólica es normal alta" << endl;
+	} else if (diastolic < 100) {
+		healthProfile << "  La lectura diastólica indica etapa 1 de hipertensión" << endl;
+	} else if (diastolic < 110) {
+		healthProfile << "  La lectura diastólica indica etapa 2 de hipertensión" << endl;
+	} else {
+		healthProfile << "  La lectura diastólica indica etapa 3 de hipertensión" << endl;
+	}
+}
 
 
 
