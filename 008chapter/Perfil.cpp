@@ -96,6 +96,38 @@ void EvaluateCholesterol(ofstream& healthProfile, string name){
 	} else {
 		healthProfile << "  La relación de LDL a HDL no es buena" << endl;
 	}
+}
+
+
+void EvaluateBMI(ofstream& healthProfile, string name) {
+	const int BMI_CONSTANT = 703;
+
+	float pounds;
+	float inches;
+
+	// Introducir el peso y la estatura
+	cout << "Introducir el peso en libras para " << name << ": ";
+	cin >> pounds;
+	cout << "Introducir la estatura en pulgadas para " << name << ": ";
+	cin >> inches;
+	float bodyMassIndex = pounds * BMI_CONSTANT / (inches * inches);
+	healthProfile << "Perfil del indice de masa corporal" << endl;
+	// imprimir el indice de masa corporal
+	healthProfile << "  El indice de masa corporal es " << bodyMassIndex << ". " << endl;
+	healthProfile << "  Interpretación del IMC " << endl;
+
+	// Imprimir interpretación del IMC
+	if (bodyMassIndex < 20) {
+		healthProfile << "  Abajo del peso normal: el IMC  es muy bajo" << endl;
+	} else if (bodyMassIndex <= 25) {
+		healthProfile << "  Normal: el IMC  es el promedio" << endl;
+	} else if (bodyMassIndex <= 30) {
+		healthProfile << "  Sobrepeso: el IMC es muy alto" << endl;
+	} else {
+		healthProfile << "  Obeso: el IMC es peligrosamente alto" << endl;
+	}
+}
+
 
 
 
