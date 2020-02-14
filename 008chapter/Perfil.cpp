@@ -58,6 +58,44 @@ string Name() {
 }
 
 
+void EvaluateCholesterol(ofstream& healthProfile, string name){
+	int HDL;
+	int LDL;
+
+	// Solicitar e introducir HDL y LDL
+	cout << "Introducir HDL para " << name << ": ";
+	cin >> HDL;
+	cout << "Introducir LDL para " << name << ": ";
+	cin >> LDL;
+	float ratio = LDL/HDL;
+
+	healthProfile << "Perfil de colesterol " << endl;
+	// Imprimir un mensaje con en el valor de HDL
+	if(HDL < 40){
+		healthProfile << "  HDL es demasiado bajo" << endl;
+	} else if(HDL < 60) {
+		healthProfile << "  HDL es correcto" << endl;
+	} else {
+		healthProfile << "  HDL es excelente" << endl;
+	}
+	// Imprimir un mensaje con base en el valor de LDL
+	if(LDL < 100) {
+		helthProfile << "   LDL es óptimo" << endl;
+	} else if (LDL < 130) {
+		healthProfile << "  LDL es casi óptimo" << endl;
+	} else if (LDL < 160) {
+		healthProfile << "  LDL está en el limite alto" << endl;
+	} else if (LDL < 190) {
+		healthProfile << "  LDL es alto" << endl;
+	} else {
+		healthProfile << "  LDL es muy bajo" << endl;
+	}
+
+	if (ratio < 3.22) {
+		healthProfile << "  La relación de LDL a HDL es buena" << endl;
+	} else {
+		healthProfile << "  La relación de LDL a HDL no es buena" << endl;
+	}
 
 
 
