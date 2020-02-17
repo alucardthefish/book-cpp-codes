@@ -87,6 +87,30 @@ void PrintTable(ofstream& table,
 		int punctuationCounter, 
 		int allElseCounter)
 {
-	// Implementar luego
+	// Calcualar el número total de caracteres
+	float total = uppercaseCounter + lowercaseCounter
+		+ blankCounter + digitCounter + punctuationCounter
+		+ allElseCounter;
+
+	// Escribir el resultado en la tabla de flujo
+	table << fixed << setprecision(3)
+		<< "Porcentaje de mayúsculas: "
+		<< uppercaseCounter / total * 100 << endl;
+	table << fixed << setprecision(3)
+		<< "Porcentaje de minúsculas: "
+		<< lowercaseCounter / total * 100 << endl;
+	table << fixed << setprecision(3)
+		<< "Porcentaje de espacios: "
+		<< blankCounter / total * 100 << endl;
+	table << fixed << setprecision(3)
+		<< "Porcentaje de digitos: "
+		<< digitCounter / total * 100 << endl;
+	table << fixed << setprecision(3)
+		<< "Porcentaje de signos de fin de enunciado: "
+		<< "Puntuación " << punctuationCounter / total * 100 << endl;
+
 }
+
+
+
 
