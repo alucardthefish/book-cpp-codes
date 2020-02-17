@@ -36,7 +36,7 @@ int main(int argc, char * argv[]) {
 	int blankCounter = 0;
 	int digitCounter = 0;
 	int punctuationCounter = 0;
-	int allEseCounter = 0;
+	int allElseCounter = 0;
 
 	OpenFiles(text, table);
 	if (!text || !table) {
@@ -62,7 +62,7 @@ int main(int argc, char * argv[]) {
 
 void IncrementCounter(char character, int& uppercaseCounter, int& lowercaseCounter, int& blankCounter, int& digitCounter, int& punctuationCounter, int& allElseCounter)
 {
-	if (isuper(character)) {
+	if (isupper(character)) {
 		uppercaseCounter++;
 	} else if (islower(character)) {
 		lowercaseCounter++;
@@ -112,5 +112,25 @@ void PrintTable(ofstream& table,
 }
 
 
+//**********************************************************************************************
 
+void OpenFiles(ifstream& text, 
+		ofstream& table)
+{
+	string inFileName;
+	string outFileName;
+
+	cout << "Introducir el nombre del archivo de entrada que será procesado" << endl;
+
+	cin >> inFileName;
+	text.open(inFileName.c_str());
+
+	cout << "Introducir el nombre del archivo de salida" << endl;
+	cin >> outFileName;
+	table.open(outFileName.c_str());
+
+	// Escribir la etiqueta en el archivo de salida
+	table << "Análisis de caracteres en el archivo de salida " << inFileName << endl;
+
+}
 
