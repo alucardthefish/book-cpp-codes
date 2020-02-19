@@ -10,7 +10,7 @@
 
 using namespace std;
 
-enum RelationType(BEFORE, SAME, AFTER);
+enum RelationType{BEFORE, SAME, AFTER};
 
 class Name
 {
@@ -23,7 +23,7 @@ class Name
 		
 		void SetName(
 				string firstName,
-				string middleName;
+				string middleName,
 				string lastName);
 
 		void ReadName();

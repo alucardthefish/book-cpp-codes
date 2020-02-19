@@ -69,7 +69,7 @@ char Name::MiddleInitial() const
 	return middle[0];
 }
 
-RelationType Name::ComparedTo(Name otherName)
+RelationType Name::ComparedTo(Name otherName) const
 {
 	if(last < otherName.last)
 		return BEFORE;
