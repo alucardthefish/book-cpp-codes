@@ -71,7 +71,20 @@ char Name::MiddleInitial() const
 
 RelationType Name::ComparedTo(Name otherName)
 {
-	//Implement later
+	if(last < otherName.last)
+		return BEFORE;
+	else if (otherName.last < last)
+		return AFTER;
+	else if (first < otherName.first)
+		return BEFORE;
+	else if (otherName.first < first)
+		return AFTER;
+	else if (middle < otherName.middle)
+		return BEFORE;
+	else if (otherName.middle < middle)
+		return AFTER;
+	else
+		return SAME;
 }
 
 
